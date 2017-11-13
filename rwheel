@@ -1,0 +1,18 @@
+require `pry`
+
+class rwheel
+    
+
+
+
+
+
+
+
+
+
+
+
+end
+
+    #has numbers ranging 0-36 and even/ odd black/ red
