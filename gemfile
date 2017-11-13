@@ -1,12 +1,4 @@
-require 'pry'
+source 'https://rubygems.org'
+ruby '2.3.1'
 
-class casino
-  def initialize
-    puts 'welcome to the casino!'
-    puts 'what is you name, player?'
-    name = gets.strip
-
-    #create a new player instance and proably 
-end
-
-casino.new
+gem 'pry'

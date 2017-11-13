@@ -1,10 +1,10 @@
-class wallet
-attr_accessor :amount
-def initialize (amount)
- @amount = amount
-end
+class Wallet
+  attr_accessor :amount
 
-a method to add and suntract from amout
-this can be used to add or remove bet ammounts
+  def initialize(amount)
+    @amount = amount
+  end
 
+  # want a method to add and subtract from the wallet amount
+  # this can be used to add or remove bet amounts
 end
