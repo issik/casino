@@ -1,73 +1,66 @@
-require `pry`
-require_relative `player`
+require "pry"
+require_relative "player"
 class Roulette
 
-    attr_accessor : @bet, @num, @col
+    attr_accessor :bet, :num, :col, :player
 
-  def initialize(Player)
+  def initialize(player)
+    @bet = 0
+    @num = 0
+    @col = ""
     puts "Welcome to the roulette Wheel #{player.name}"
     puts "1) Make a bet"
     puts "2) Return to Casino lobby"
-    input = gets.to_i(i -1)
+    input = gets.to_i
     if input == 1
-        start
-    if input == 2
+        start(player)
+    elsif input == 2
         exit
-    if else
+    else
         puts "Please pick 1 or 2 ===D~nose"
-      menu
     end
     
   end  
     
-  def start
-    puts "How much would you like to bet?? ($#{@player.wallet.amount}"
+  def start(player)
+    puts "How much would you like to bet?? ($#{player.wallet.amount}"
     @bet = gets.to_f
-    puts "What number do you pick?"
+    puts "What number do you pick?(1 through 36)"
     @num = gets.to_i
-    puts "What color do you want?"
-    @col = gets.strip
+    puts "What color do you want 1) Black or 2)Red? 1 or 2"
+    @col = gets.to_i - 1
     puts "type spin to spin the wheel!"
-    spin = gets.strip
+    ws = gets.strip
     puts "---SPINNING---"
-    
+    spin(player)
   end
 
-  def spin
-    arr = rand(0..36)
-      puts "Wheel number is #{arr}"
-    br = rand(1, 2)
-      if br == 1
-        then
+  def spin(player)
+    arr = rand(1..36)
+    puts "Wheel number is #{arr}"
+    br = rand(1)
+      if br == 0
         puts "Wheel color is black"
-      if br === 2
-        then
+      else br == 1
         puts "Wheel color is Red"
       end
+      checking(arr, br, player)
     end
 
-  def checking
-    if @num = arr
-        then 
-        puts "You win x1!"
-        do.(@bet*1)
-    if @col = br
-        puts "You win x1!"
-        do.(@bet*1)
-    elsif (@num, @col) = (arr,br)
-        then
+  def checking(arr, br, player)
+    if @num == arr && @col == br
+      then
         puts "You win x2!"
-        do.(@bet*2)
+        player.wallet.amount += (@bet*2)
+    elsif @num == arr
+        puts "You win x1!"
+        player.wallet.amount += @bet
+    elsif @col == br
+         puts "You win x1!"
+         player.wallet.amount += @bet
+    else 
+        puts "Donald Trump Says your a Loser"
+        player.wallet.amount -= @bet
     end
-
-
-  
-initialize 
-
-
-end 
- # def Wheel
-
-# has numbers ranging 0-36 and even/ odd black/ red
-#randomize the number  and the color 
-
+  end
+end #get final wallet amount to go back to player?
