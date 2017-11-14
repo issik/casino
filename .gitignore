@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 .DS_Store
+=======
+*.password
+*.log
+.DS_Store
+>>>>>>> initial war
