@@ -58,6 +58,6 @@ class Slots
   end
 end
 
-player = Player.new
-Slots.new(player)
+# player = Player.new
+# Slots.new(player)
 # Slots.new # take out at the end
