@@ -1,6 +1,7 @@
 require 'colorize'
 require 'pry'
 require_relative "player"
+require_relative "casino"
 
 class Slots
 
