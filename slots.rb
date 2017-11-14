@@ -9,8 +9,8 @@ class Slots
 
   def initialize(player)
     @bet = (0)
-    puts "Welcome to Slots"
-    puts "1) Play slots...minimum bet is $5.00"
+    puts "--\u{2663}-\u{2666}--Welcome to Slots--\u{2665}-\u{2660}--".magenta
+    puts "1) Play slots...minimum bet is $5.00. You have: $#{player.wallet.amount}" #added
     puts "2) Exit to Casino"
     play = gets.strip.to_i
     case play
@@ -18,15 +18,20 @@ class Slots
         menu(player)
       when 2
         puts "Goodbye"
-        exit(0)
+        exit (0)
     end
   end
 
   def menu(player)
-    arr1 = ["\u{2660}".red, "\u{2663}".green, "\u{2666}".blue, "\u{2665}".yellow]
-    arr2 = ["\u{2660}".red, "\u{2663}".green, "\u{2666}".blue, "\u{2665}".yellow]
-    arr3 = ["\u{2660}".red, "\u{2663}".green, "\u{2666}".blue, "\u{2665}".yellow]
-    puts "Minimum bet $5.00. You have: ($#{player.wallet.amount})"
+    arr1 = ["\u{2660}".yellow, "\u{2663}".green, "\u{2666}".magenta, "\u{2665}".red]
+    arr2 = ["\u{2660}".yellow, "\u{2663}".green, "\u{2666}".magenta, "\u{2665}".red]
+    arr3 = ["\u{2660}".yellow, "\u{2663}".green, "\u{2666}".magenta, "\u{2665}".red]
+    puts "Minimum bet $5.00. You have: $#{player.wallet.amount}"
+    if player.wallet.amount <= 0
+      puts "You are out of dough!"
+      `say "This is a casino not a charity! The A T M is downstairs"`
+      exit
+    end
     puts "Place your bet!"
     @bet = gets.strip.to_i
     if @bet < 5
