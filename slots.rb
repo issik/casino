@@ -11,7 +11,7 @@ class Slots
     @bet = (0)
     puts "--\u{2663}-\u{2666}--Welcome to Slots--\u{2665}-\u{2660}--".magenta
     puts "Match first two any suit \u{2663} \u{2663} \u{2665} win 2X your bet!"
-    puts "Match all three \u{2663} \u{2663} \u{2663} any suit win 100X your bet!"
+    puts "Match all three any suit \u{2663} \u{2663} \u{2663} win 100X your bet!"
     puts
     puts "1) Play slots...minimum bet is $5.00. You have: $#{player.wallet.amount}" #added
     puts "2) Exit to Casino"
@@ -36,9 +36,14 @@ class Slots
     end
     puts "Place your bet!"
     @bet = gets.strip.to_i
-    if @bet < 5
-      puts "Need more dough!"
-      `say "NEED MORE DOUGH!"`
+    case# case #added
+    when player.wallet.amount < @bet
+      puts "Nice try!" #added
+      `say "You don't have that kind of cash!"` #added
+      #added
+    when @bet < 5 #change to when maybe
+      puts "MINIMUM BET $5.00!"
+      `say "DON'T HATE THE PLAYER HATE THE GAME!"`
       initialize(player)
     else @bet > 5
       puts "\n"
@@ -49,6 +54,7 @@ class Slots
       print s
       puts t
       puts "\n"
+    # end #need this if when statement
     case
     when f == s && f != t
         puts "WINNER"
