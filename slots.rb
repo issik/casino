@@ -10,6 +10,9 @@ class Slots
   def initialize(player)
     @bet = (0)
     puts "--\u{2663}-\u{2666}--Welcome to Slots--\u{2665}-\u{2660}--".magenta
+    puts "Match first two any suit \u{2663} \u{2663} \u{2665} win 2X your bet!"
+    puts "Match all three \u{2663} \u{2663} \u{2663} any suit win 100X your bet!"
+    puts
     puts "1) Play slots...minimum bet is $5.00. You have: $#{player.wallet.amount}" #added
     puts "2) Exit to Casino"
     play = gets.strip.to_i
@@ -47,10 +50,16 @@ class Slots
       print s
       puts t
       puts "\n"
-    if f == s && s == t
+    case
+    when f == s && f != t
         puts "WINNER"
         `say "winner winner chicken dinner"`
         player.wallet.amount += (@bet*2)
+        initialize(player)
+    when f == s && s == t
+        puts "JACKPOT!"
+        `say "JACKPOT"`
+        player.wallet.amount += (@bet*100)
         initialize(player)
     else f != s
         puts "LOSER"
