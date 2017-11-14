@@ -9,8 +9,12 @@ class Casino
   attr_accessor :player, :options
 
   def initialize
-    puts 'Welcome to the ruby casino!'
+    puts
+    puts "--\u{2663}-\u{2666}--Welcome to RUBY CASINO--\u{2665}-\u{2660}--".green
+    puts
     @player = Player.new
+    puts "--\u{2663}-\u{2666}--Choose a game!--\u{2665}-\u{2660}--".green
+    puts
     @options = ["High / Low", "War", "Roulette", "Slots", "Exit"]
     menu
   end

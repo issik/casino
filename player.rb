@@ -18,9 +18,8 @@ class Player
 
   def age_verification
     if @age < MIN_AGE
-      `say GET OUT OF HERE!`
+      `say GET OUT OF HERE KID!`
       exit
     end
   end
-
 end
