@@ -20,9 +20,8 @@ class Slots
       when 1
         menu(player)
       when 2
-        puts "Goodbye"
-        exit (0)
-    end
+        Casino
+      end
   end
 
   def menu(player)

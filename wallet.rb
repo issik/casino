@@ -6,7 +6,7 @@ class Wallet
   def initialize(amount)
     @amount = amount
     if amount > HIGH_ROLLER
-      `say Ooooo...high roller!`
+      `say Ooooo...high roller!`    
     end
   end
 end
