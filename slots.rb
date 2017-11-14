@@ -20,7 +20,7 @@ class Slots
       when 1
         menu(player)
       when 2
-        Casino
+        Casino.new
       end
   end
 

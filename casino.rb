@@ -15,7 +15,7 @@ class Casino
     @player = Player.new
     puts "--\u{2663}-\u{2666}--Choose a game!--\u{2665}-\u{2660}--".green
     puts
-    @options = ["High / Low", "War", "Roulette", "Slots", "Exit"]
+    @options = ["War", "Roulette", "Slots", "Exit"]
     menu
   end
 
@@ -24,14 +24,12 @@ class Casino
     choice = gets.to_i - 1
     case choice
       when 0
-        HighLow.new(@player)
-      when 1
         War.new
-      when 2
+      when 1
         Roulette.new(@player)
-      when 3
+      when 2
         Slots.new(@player)
-      when 4
+      when 3
         puts "Come again!"
         exit
       else
