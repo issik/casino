@@ -50,9 +50,9 @@ class Slots
       f = arr1.sample
       s = arr2.sample
       t = arr3.sample
-      print f
-      print s
-      puts t
+      print f ; sleep (1)
+      print s ; sleep (1)
+      puts t ; sleep (1)
       puts "\n"
     # end #need this if when statement
     case
